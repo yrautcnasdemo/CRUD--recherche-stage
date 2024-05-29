@@ -92,7 +92,7 @@ session_start();
                         }
                     ?>
                     <h1>Ajouter une recherches</h1>
-                    <form method="post">
+                    <form method="post" enctype="multipart/form-data">
                         <div class="form-group">
                             <label for="search_statue">Statue recherche</label>
                             <input type="text" id="search_statue" name="search_statue" class="form-control">
@@ -123,7 +123,11 @@ session_start();
                         </div>
                         <div class="form-group">
                             <label for="contrat_type">Type contrat</label>
-                            <input type="text" id="contrat_type" name="contrat_type" class="form-control">
+                            <select type="text" id="contrat_type" name="contrat_type" class="form-control">
+                                <option value="CDI">CDI</option>
+                                <option value="CDD">CDD</option>
+                                <option value="Stage">Stage</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="e_mail">eM@il</label>
