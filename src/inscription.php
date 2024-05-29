@@ -1,6 +1,5 @@
 <?php
     session_start();
-    require_once('header.php');
     require_once('connexion.php');
     require_once('user.php');
 
@@ -14,7 +13,7 @@
         $resulta = addUser($db, $_POST['first_name'], $_POST['last_name'], $_POST['email'], $_POST['password']);
 
         if($resulta) {
-            $messages[] = "Merci pour votre inscription";
+            header('Location: login.php');
         } else {
             $errors[] = "Une erreur s'est produit lors de votre inscription, votre vie est un echec...";
         }
@@ -37,6 +36,8 @@
 <body>
 
     <section>
+        
+        <?php require_once('header.php'); ?>
 
         <h1>Inscription</h1>
 

@@ -1,6 +1,5 @@
 <?php
     session_start();
-    require_once('header.php');
     require_once('connexion.php');
     require_once('user.php');
 
@@ -53,9 +52,11 @@
     <title>MyCRUD</title>
 </head>
 <body>
-    <section>
+    <!--ATTENTION LE "require_once.php" N'est pas en début de page, CAR IL PROVOQUE UN CONFLIT AVEC header(location: index.php) car il contient du HTML-->
+    <?php require_once('header.php'); ?> 
 
-        <h1>Connexion</h1>
+    <section>
+        <h1 class="text-center">Connexion</h1>
 
         <?php foreach($messages as $message) { ?>
             <div class="alert alert-success">
@@ -69,7 +70,7 @@
             </div>
         <?php } ?>
 
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data" class="container">
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" name="email" id="email" class="form-control">

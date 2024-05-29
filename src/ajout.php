@@ -1,11 +1,11 @@
 <?php
 //La page ajouter une entreprise a 2 rôles, afficher le formulaire d'ajout vierge, et ajouter une entreprise dans la BDD
 
-    //ici on démare une session afin de pouvoir stocker les données de l'utilisateur , elle seront ensuite réutilisable sur les pages où la superglobal...
+//ici on démare une session afin de pouvoir stocker les données de l'utilisateur , elle seront ensuite réutilisable sur les pages où la superglobal...
 //...$_SESSION sera ecrite et définit (ATTENTION, il n'est apparament pas nessecaire d'écrire session_start() sur les autres pages)
 session_start();
 
-    if(isset($_SESSION['user'])){
+    if(!isset($_SESSION['user'])){
         header('location: login.php');
     }
 
