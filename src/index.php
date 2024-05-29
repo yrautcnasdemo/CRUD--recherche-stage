@@ -1,9 +1,9 @@
 <?php
-    //ici on démare une session afin de pouvoir stocker les données de l'utilisateur , elle seront ensuite réutilisable sur les pages où la superglobal...
+//ici on démare une session afin de pouvoir stocker les données de l'utilisateur , elle seront ensuite réutilisable sur les pages où la superglobal...
 //...$_SESSION sera ecrite et définit (ATTENTION, il n'est apparament pas nessecaire d'écrire session_start() sur les autres pages)
 session_start();
 
-
+    require_once('header.php');
     require_once('connexion.php');
 
 

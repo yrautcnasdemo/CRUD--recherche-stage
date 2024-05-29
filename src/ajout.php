@@ -5,6 +5,10 @@
 //...$_SESSION sera ecrite et définit (ATTENTION, il n'est apparament pas nessecaire d'écrire session_start() sur les autres pages)
 session_start();
 
+    if(isset($_SESSION['user'])){
+        header('location: login.php');
+    }
+
     if($_POST){
         //ici on vérifie si les champs du formulaire son définit et pas vide
         if(isset($_POST['search_statue']) && !empty($_POST['search_statue'])
