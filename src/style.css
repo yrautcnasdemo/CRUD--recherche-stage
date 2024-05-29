@@ -1,0 +1,11 @@
+body {
+    background-color: rgb(19, 19, 19);
+    color: aliceblue;
+}
+
+.affichage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+}
