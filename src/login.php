@@ -14,7 +14,7 @@
 
         if ($user) {
             $_SESSION['user'] = ['email' => $user['email']];
-            $_SESSION['user'] = ['user_id' => $user['id']];
+            $_SESSION['user'] = ['user_id' => $user['id']];//INSTANCIER UTILISATEUR : ici on assigne $user['id'] a user_id
             header('Location: index.php');
         } else {
             $errors[] = 'Email ou mot de passe incorrect, votre vie est un echec...';

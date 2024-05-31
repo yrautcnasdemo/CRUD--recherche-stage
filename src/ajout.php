@@ -13,7 +13,7 @@ require_once('user.php');
     if($_POST){
         //ici on vérifie si les champs du formulaire son définit et pas vide
         if(isset($_POST['search_statue']) && !empty($_POST['search_statue'])
-        && isset($_POST['user_id']) && !empty($_POST['user_id'])
+        && isset($_POST['user_id']) && !empty($_POST['user_id']) //le user_id serre de clé étrangère
         && isset($_POST['compagny_name']) && !empty($_POST['compagny_name'])
         && isset($_POST['apply_date']) && !empty($_POST['apply_date'])
         && isset($_POST['new_apply']) && !empty($_POST['new_apply'])
@@ -29,7 +29,7 @@ require_once('user.php');
 
         //on néttoie les données envoyées afin d'empêcher l'injection de code
         $search_statue = strip_tags($_POST["search_statue"]);
-        $user_id = strip_tags($_POST["user_id"]);
+        $user_id = strip_tags($_POST["user_id"]); //le user_id serre de clé étrangère
         $compagny_name = strip_tags($_POST["compagny_name"]);
         $apply_date = strip_tags($_POST["apply_date"]);
         $new_apply = strip_tags($_POST["new_apply"]);
@@ -49,7 +49,7 @@ require_once('user.php');
 
         //On fix les données entre elles
         $query->bindValue(":search_statue", $search_statue, PDO::PARAM_STR);
-        $query->bindValue(":user_id", $user_id, PDO::PARAM_INT);
+        $query->bindValue(":user_id", $user_id, PDO::PARAM_INT); //le user_id serre de clé étrangère
         $query->bindValue(":compagny_name", $compagny_name, PDO::PARAM_STR);
         $query->bindValue(":apply_date", $apply_date, PDO::PARAM_STR);
         $query->bindValue(":new_apply", $new_apply, PDO::PARAM_STR);
@@ -142,8 +142,8 @@ require_once('user.php');
                             <input type="text" id="commentary" name="commentary" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="user_id">Commentaire</label>
-                            <input type="hidden" value="<?= ($_SESSION['user']['user_id']) ?>" id="user_id" name="user_id" class="form-control">
+                            <input type="hidden" value="<?= ($_SESSION['user']['user_id']) ?>" id="user_id" name="user_id" class="form-control"> 
+                            <!--INSTANCIER UTILISATEUR: ici on assigne la valeur $_SESSION['user']['user_id'] grace a "$_SESSION['user'] = ['user_id' => $user['id']];" définit dans login.php et ne pas oublier le session_start() avec le require_once("user.php")--> 
                         </div>
 
                         <!-- image start facultatif -->

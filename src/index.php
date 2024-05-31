@@ -6,7 +6,7 @@ session_start();
     require_once('header.php');
     require_once('connexion.php');
 
-    //REQUETE SQL A MODIFIER, PLACER UNE JOINTURE DE TABLE ENTRE "users" ET "MesRecherches" GRACE A "user_id" CONTENU DANS "MesRecherches" ????/////////////////////////////////////////////////
+    //REQUETE SQL A MODIFIER, PLACER UNE JOINTURE DE TABLE ENTRE "users" ET "MesRecherches" GRACE A "user_id" CONTENU DANS "MesRecherches"
     $sql = "SELECT * FROM MesRecherches WHERE user_id = :id"; //Requête sql
     
     $query = $db->prepare($sql); //Ici on prépare la requête sql (préparer une requête serre diminuer le temps d'attente en cas d'utilisation multiple et protege aussi des injection SQL)
