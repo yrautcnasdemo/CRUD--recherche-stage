@@ -1,11 +1,5 @@
 <?php
-//ici on démare une session afin de pouvoir stocker les données de l'utilisateur , elle seront ensuite réutilisable sur les pages où la superglobal...
-//...$_SESSION sera ecrite et définit (ATTENTION, il n'est apparament pas nessecaire d'écrire session_start() sur les autres pages mais là si, et je ne sais pas pourquoi)
-// gemini me propose ces solutions : 
-// 1-Vérifier la configuration des erreurs : Assurez-vous que le reporting des erreurs est activé pour afficher les notices et warnings. Un niveau d'erreur reporting de E_ALL est généralement recommandé pour le débogage.
-// 2-Analyser le code de gestion des erreurs : Vérifiez si vous avez implémenté un traitement d'erreurs personnalisé qui masque le message d'erreur par défaut.
-// 3-Mettre à jour PHP : Si vous utilisez une version de PHP obsolète, envisagez de la mettre à jour vers une version récente et stable pour bénéficier des meilleures performances et de la meilleure sécurité.
-// 4-Tester le code : Reproduisez le scénario où l'erreur devrait se produire et vérifiez attentivement les messages d'erreur affichés ou les comportements inattendus.
+//ici on démare une session afin de pouvoir stocker les données de l'utilisateur , elle seront ensuite réutilisable sur les pages où la superglobal $_SESSION sera ecrite et définit.
 session_start();
 
 

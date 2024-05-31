@@ -1,0 +1,2 @@
+-Lorsque le user AJOUT une recherche, il ajoute son ID dans le user_id du tableau de recherche
+-lorsque le user log, il récupère le tableau contenant uniquement les user_id qui lui corresponde 

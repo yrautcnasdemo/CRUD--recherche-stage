@@ -13,6 +13,7 @@ require_once('user.php');
     if($_POST){
         //ici on vérifie si les champs du formulaire son définit et pas vide
         if(isset($_POST['search_statue']) && !empty($_POST['search_statue'])
+        && isset($_POST['user_id']) && !empty($_POST['user_id'])
         && isset($_POST['compagny_name']) && !empty($_POST['compagny_name'])
         && isset($_POST['apply_date']) && !empty($_POST['apply_date'])
         && isset($_POST['new_apply']) && !empty($_POST['new_apply'])
@@ -28,6 +29,7 @@ require_once('user.php');
 
         //on néttoie les données envoyées afin d'empêcher l'injection de code
         $search_statue = strip_tags($_POST["search_statue"]);
+        $user_id = strip_tags($_POST["user_id"]);
         $compagny_name = strip_tags($_POST["compagny_name"]);
         $apply_date = strip_tags($_POST["apply_date"]);
         $new_apply = strip_tags($_POST["new_apply"]);
@@ -39,14 +41,15 @@ require_once('user.php');
         $commentary = strip_tags($_POST["commentary"]);
 
         //requête d'insertion
-        $sql = "INSERT INTO MesRecherches (`search_statue`, `compagny_name`, `apply_date`, `new_apply`, `apply_type`, `methode_apply`, `job`, `contrat_type`, `e_mail`, `commentary`)
-        VALUES (:search_statue, :compagny_name, :apply_date, :new_apply, :apply_type, :methode_apply, :job, :contrat_type, :e_mail, :commentary);";
+        $sql = "INSERT INTO MesRecherches (`user_id`,`search_statue`, `compagny_name`, `apply_date`, `new_apply`, `apply_type`, `methode_apply`, `job`, `contrat_type`, `e_mail`, `commentary`)
+        VALUES (:user_id, :search_statue, :compagny_name, :apply_date, :new_apply, :apply_type, :methode_apply, :job, :contrat_type, :e_mail, :commentary);";
 
         //Onprépare la requête
         $query = $db->prepare($sql);
 
         //On fix les données entre elles
         $query->bindValue(":search_statue", $search_statue, PDO::PARAM_STR);
+        $query->bindValue(":user_id", $user_id, PDO::PARAM_INT);
         $query->bindValue(":compagny_name", $compagny_name, PDO::PARAM_STR);
         $query->bindValue(":apply_date", $apply_date, PDO::PARAM_STR);
         $query->bindValue(":new_apply", $new_apply, PDO::PARAM_STR);
@@ -138,6 +141,11 @@ require_once('user.php');
                             <label for="commentary">Commentaire</label>
                             <input type="text" id="commentary" name="commentary" class="form-control">
                         </div>
+                        <div class="form-group">
+                            <label for="user_id">Commentaire</label>
+                            <input type="hidden" value="<?= ($_SESSION['user']['user_id']) ?>" id="user_id" name="user_id" class="form-control">
+                        </div>
+
                         <!-- image start facultatif -->
                         <!-- <div>
                             <label for="image">Selectionner une image:</label>

@@ -14,6 +14,7 @@
 
         if ($user) {
             $_SESSION['user'] = ['email' => $user['email']];
+            $_SESSION['user'] = ['user_id' => $user['id']];
             header('Location: index.php');
         } else {
             $errors[] = 'Email ou mot de passe incorrect, votre vie est un echec...';
